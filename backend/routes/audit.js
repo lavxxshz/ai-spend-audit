@@ -77,6 +77,10 @@ router.post('/save', async (req, res) => {
 });
 
 async function sendConfirmationEmail(email, company, monthlySavings, annualSavings, auditId) {
+  if (!resend) {
+    console.log('Email skipped — no RESEND_API_KEY configured');
+    return;
+  }
   const isHighSavings = monthlySavings > 500;
   const shareUrl = `${process.env.FRONTEND_URL}/share/${auditId}`;
 
