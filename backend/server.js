@@ -1,10 +1,21 @@
 const express = require('express');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const app = express();
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
 app.use(express.json());
+
+// Rate limiter — max 10 requests per 15 min per IP
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  message: { error: 'Too many requests, please try again later.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.use('/api/audit', limiter);
 
 const sequelize = require('./config/db');
 const auditRoutes = require('./routes/audit');
