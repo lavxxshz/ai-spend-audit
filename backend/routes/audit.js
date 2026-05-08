@@ -2,12 +2,11 @@ const express = require('express');
 const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
 const Groq = require('groq-sdk');
-const resend = process.env.RESEND_API_KEY ? require('resend').Resend && new (require('resend').Resend)(process.env.RESEND_API_KEY) : null;
+const resend = process.env.RESEND_API_KEY ? new (require('resend').Resend)(process.env.RESEND_API_KEY) : null;
 const Audit = require('../models/Audit');
 require('dotenv').config();
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || 'dummy' });
-const resend = process.env.RESEND_API_KEY ? require('resend').Resend && new (require('resend').Resend)(process.env.RESEND_API_KEY) : null;
 
 // Generate AI Summary
 router.post('/summary', async (req, res) => {
