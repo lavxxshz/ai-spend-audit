@@ -14,16 +14,20 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm install
+
+      - name: Install react-router-dom and axios
+        working-directory: frontend
+        run: npm install react-router-dom axios
 
       - name: Run frontend tests
         working-directory: frontend
