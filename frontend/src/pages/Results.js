@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { runAudit } from '../utils/auditEngine';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 const Results = () => {
   const navigate = useNavigate();
