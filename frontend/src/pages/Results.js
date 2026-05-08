@@ -23,7 +23,7 @@ const Results = () => {
     const auditData = runAudit(JSON.parse(data));
     setAudit(auditData);
     fetchAiSummary(auditData);
-  }, []);
+  }, [navigate]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchAiSummary = async (auditData) => {
     try {
