@@ -132,6 +132,7 @@ const Audit = () => {
     const validTools = form.tools.filter(t => t.toolId && t.planId);
     if (validTools.length === 0) return alert('Please add at least one AI tool');
     localStorage.setItem('auditData', JSON.stringify({ ...form, tools: validTools }));
+    localStorage.removeItem('auditForm');
     navigate('/results');
   };
 

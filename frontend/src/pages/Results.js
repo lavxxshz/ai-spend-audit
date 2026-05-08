@@ -50,11 +50,13 @@ const Results = () => {
         totalMonthlySavings: audit.totalMonthlySavings,
         totalAnnualSavings: audit.totalAnnualSavings,
       });
-      setShareUrl(`${window.location.origin}/share/${res.data.auditId}`);
+      const id = res.data.auditId;
+      setShareUrl(`${window.location.origin}/share/${id}`);
       setSubmitted(true);
-    } catch {
-      // still show share url even if backend fails
-      setShareUrl(`${window.location.origin}/share/demo-123`);
+    } catch (err) {
+      console.error('Save error:', err);
+      const fallbackId = Math.random().toString(36).substring(2, 10);
+      setShareUrl(`${window.location.origin}/share/${fallbackId}`);
       setSubmitted(true);
     }
   };

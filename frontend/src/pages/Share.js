@@ -11,16 +11,17 @@ const Share = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetchAudit = async () => {
       try {
         const res = await axios.get(`${API_URL}/api/audit/share/${id}`);
-        const audit = runAudit(res.data.auditData);
-        setData({ ...res.data, audit });
-      } catch {
+        const auditResult = runAudit(res.data.auditData);
+        setData({ ...res.data, audit: auditResult });
+      } catch (err) {
+        console.error('Share fetch error:', err);
         setError('Audit not found or expired.');
       }
     };
-    fetch();
+    fetchAudit();
   }, [id]);
 
   if (error) return (
