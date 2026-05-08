@@ -25,8 +25,9 @@ app.use('/api/audit', auditRoutes);
 sequelize.sync()
   .then(() => {
     console.log('MySQL Connected & Tables Created');
-    app.listen(process.env.PORT || 5000, () => {
-      console.log(`Server running on port ${process.env.PORT || 5000}`);
+    const PORT = process.env.PORT || 8080;
+ app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
     });
   })
   .catch(err => console.log(err));
