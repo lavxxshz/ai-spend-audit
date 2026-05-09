@@ -21,6 +21,15 @@ const sequelize = require('./config/db');
 const auditRoutes = require('./routes/audit');
 
 app.use('/api/audit', auditRoutes);
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100,
+  message: { msg: 'Too many requests, please try again later' }
+});
+
+app.use('/api/', limiter);
 
 sequelize.sync()
   .then(() => {
