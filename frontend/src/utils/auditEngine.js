@@ -226,6 +226,40 @@ const auditTool = (tool, teamSize, useCase) => {
   };
 };
 
+export const checkRedundancy = (tools) => {
+  const toolIds = tools.map(t => t.toolId);
+  const warnings = [];
+
+  // Cursor + GitHub Copilot overlap
+  if (toolIds.includes('cursor') && toolIds.includes('github_copilot')) {
+    warnings.push({
+      tools: ['Cursor', 'GitHub Copilot'],
+      message: 'Cursor and GitHub Copilot have significant overlap for coding. Most teams only need one. Cursor covers ~80% of Copilot features.',
+      potentialSavings: 'Up to $10-19/user/month'
+    });
+  }
+
+  // Claude + ChatGPT overlap
+  if (toolIds.includes('claude') && toolIds.includes('chatgpt')) {
+    warnings.push({
+      tools: ['Claude', 'ChatGPT'],
+      message: 'Claude and ChatGPT overlap significantly for writing and research tasks. Consider picking one based on your primary use case.',
+      potentialSavings: 'Up to $20/user/month'
+    });
+  }
+
+  // Anthropic API + Claude subscription overlap
+  if (toolIds.includes('anthropic_api') && toolIds.includes('claude')) {
+    warnings.push({
+      tools: ['Anthropic API', 'Claude'],
+      message: 'You are paying for both Claude subscription and Anthropic API. If your team is technical, API-only access may be more cost effective.',
+      potentialSavings: 'Up to $20/user/month'
+    });
+  }
+
+  return warnings;
+};
+
 export const runAudit = (formData) => {
   const { tools, teamSize, useCase } = formData;
   const results = tools.map(tool => auditTool(tool, parseInt(teamSize), useCase));
