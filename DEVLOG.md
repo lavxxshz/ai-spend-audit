@@ -57,3 +57,32 @@
 - Write ARCHITECTURE.md, PRICING_DATA.md, GTM.md, ECONOMICS.md
 - Add GitHub Actions CI workflow
 - Write 5 automated tests for audit engine
+
+---
+
+## Day 3 — 2026-05-09
+
+**Hours worked:** 4
+
+**What I did:**
+- Added rate limiting to backend API using express-rate-limit
+- Added redundancy detection — flags when users pay for overlapping tools
+- Fixed share URL bug — backend port mismatch between Railway and server
+- Fixed email save flow — resend null check added
+- Tested full end to end flow on live deployed URL
+- Both Cursor + Copilot and Claude + ChatGPT redundancy now detected
+
+**What I learned:**
+- Railway uses dynamic PORT — must use process.env.PORT not hardcoded value
+- Resend requires verified domain for sending to arbitrary emails
+- Rate limiting should be applied at API level not route level
+
+**Blockers / what I'm stuck on:**
+- Email sending requires verified domain on Resend — using dummy key for now
+- Need to add more audit rules for edge cases
+
+**Plan for tomorrow:**
+- Add benchmark comparison feature
+- Improve UI with better mobile responsiveness
+- Add more test cases for redundancy detection
+- Polish landing page copy
