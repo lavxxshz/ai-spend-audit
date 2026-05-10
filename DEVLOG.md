@@ -86,3 +86,31 @@
 - Improve UI with better mobile responsiveness
 - Add more test cases for redundancy detection
 - Polish landing page copy
+
+---
+
+## Day 4 — 2026-05-10
+
+**Hours worked:** 3
+
+**What I did:**
+- Added industry benchmark comparison to results page
+- Shows spend per developer vs industry average of $45/month
+- Fixed duplicate rateLimit declaration crash in server.js
+- Improved mobile responsiveness on landing page
+- Tested full flow end to end on live URL
+
+**What I learned:**
+- Duplicate variable declarations crash Node.js immediately on startup
+- Mobile responsiveness needs flexWrap on flex containers
+- Industry benchmarks make audit results more meaningful to users
+
+**Blockers / what I'm stuck on:**
+- Resend email requires verified domain — using fallback for now
+- Need one more day of commits before submission
+
+**Plan for tomorrow:**
+- Final UI polish
+- Add screenshots to README
+- Final check all markdown files
+- Submit to Credex Google Form
