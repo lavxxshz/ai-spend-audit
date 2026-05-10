@@ -116,6 +116,26 @@ const Results = () => {
           )}
         </div>
 
+        {/* Benchmark Section */}
+<div style={styles.benchmarkCard}>
+  <h3 style={styles.benchmarkTitle}>📊 Industry Benchmark</h3>
+  <p style={styles.benchmarkText}>
+    Average AI spend per developer at companies your size: <strong>$45/month</strong>
+  </p>
+  <p style={styles.benchmarkText}>
+    Your spend per developer: <strong>${audit.teamSize ? (audit.totalCurrentSpend / audit.teamSize).toFixed(0) : 0}/month</strong>
+  </p>
+  {audit.totalCurrentSpend / audit.teamSize > 45 ? (
+    <p style={{ color: '#ef4444', fontWeight: '700', marginTop: '8px' }}>
+      ⚠️ You are spending {((audit.totalCurrentSpend / audit.teamSize - 45) / 45 * 100).toFixed(0)}% above average
+    </p>
+  ) : (
+    <p style={{ color: '#22c55e', fontWeight: '700', marginTop: '8px' }}>
+      ✅ You are spending below industry average
+    </p>
+  )}
+</div>
+
         {/* AI Summary */}
         <div style={styles.summaryCard}>
           <div style={styles.summaryHeader}>
@@ -229,6 +249,9 @@ const Results = () => {
 };
 
 const styles = {
+  benchmarkCard: { backgroundColor: '#f8f9ff', border: '1px solid #e0e7ff', borderRadius: '12px', padding: '24px', marginBottom: '24px' },
+  benchmarkTitle: { fontSize: '16px', fontWeight: '700', color: '#4f46e5', marginBottom: '12px' },
+  benchmarkText: { fontSize: '14px', color: '#475569', marginBottom: '4px' },
   container: { minHeight: '100vh', backgroundColor: '#f0f2f5' },
   header: { backgroundColor: '#0f172a', padding: '32px 20px', textAlign: 'center' },
   headerTitle: { fontSize: '28px', fontWeight: '900', color: 'white', marginBottom: '8px' },
