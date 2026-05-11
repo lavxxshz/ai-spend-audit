@@ -14,9 +14,12 @@ Built as a lead generation tool for [Credex](https://credex.rocks) — which sel
 
 ## Screenshots
 
-![Landing Page](screenshots/landing.png)
-![Audit Form](screenshots/audit.png)
-![Results Page](screenshots/results.png)
+![Landing Page](screenshots/landing_page.png)
+![Audit Form](screenshots/audit_page.png)
+![Results Page 1](screenshots/result_page_p1.png)
+![Results Page 2](screenshots/result_page_p2.png)
+![Shareable Report](screenshots/report_open_via_sharable_link.png)
+![Saved Report](screenshots/result_sharable_link_and_saved.png)
 
 ## Quick Start
 
