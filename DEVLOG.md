@@ -114,3 +114,29 @@
 - Add screenshots to README
 - Final check all markdown files
 - Submit to Credex Google Form
+
+---
+
+## Day 5 — 2026-05-11
+
+**Hours worked:** 3
+
+**What I did:**
+- Added screenshots to README — landing page, audit form, results page, shareable link
+- Final testing of all 6 MVP features on live deployed URL
+- Verified GitHub Actions CI still green
+- Verified shareable URL working end to end
+- Checked all required markdown files are complete
+- Prepared Google Form submission
+
+**What I learned:**
+- Building a complete full stack AI product in 5 days is possible with clear priorities
+- Client-side audit engine was the best architectural decision — zero latency
+- User interviews revealed real insights — redundancy between Cursor and Copilot was most common overspend pattern
+
+**Blockers / what I'm stuck on:**
+- Resend email requires verified domain — documented this limitation
+- Railway hobby plan has occasional queuing delays
+
+**Plan for tomorrow:**
+- Await Credex Round 2 invitation
